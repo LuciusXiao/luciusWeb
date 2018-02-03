@@ -2,9 +2,11 @@ package com.lucius.user.entity;
 
 public class User {
 
+
+
     private Long id;
 
-    /**/
+    /*账号*/
     private String account;
 
     /**/
@@ -17,6 +19,9 @@ public class User {
     private String englishName;
 
 
+    public User() {
+
+    }
 
     public Long getId() {
         return id;
