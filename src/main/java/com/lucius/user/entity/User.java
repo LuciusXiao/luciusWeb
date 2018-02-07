@@ -2,22 +2,22 @@ package com.lucius.user.entity;
 
 public class User {
 
-
-
     private Long id;
 
     /*账号*/
     private String account;
 
-    /**/
+    /*密码*/
     private String passWord;
 
-    /**/
-    private String CommonName;
+    /*姓名*/
+    private String commonName;
 
-    /**/
+    /*英语名称*/
     private String englishName;
 
+    /*手机号*/
+    private String mobilePhone;
 
     public User() {
 
@@ -48,11 +48,11 @@ public class User {
     }
 
     public String getCommonName() {
-        return CommonName;
+        return commonName;
     }
 
     public void setCommonName(String commonName) {
-        CommonName = commonName;
+        this.commonName = commonName;
     }
 
     public String getEnglishName() {
@@ -61,5 +61,13 @@ public class User {
 
     public void setEnglishName(String englishName) {
         this.englishName = englishName;
+    }
+
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
     }
 }

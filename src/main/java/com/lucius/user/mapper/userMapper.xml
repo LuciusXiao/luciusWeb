@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lucius.user.dao.IUserDao">
+    <!-- 创建表 -->
+    <update id="createTable" parameterType="String">
+        create table ${tableName} (id int primary key auto_increment,account varchar(20),passWord varchar(20),commonName varchar(20),englishName varchar(20),mobile varchar(20))
+    </update>
+    <!--新增数据-->
+    <insert id="add" parameterType="User">
+        insert into user values(SEQ_NUM.nextval,#{account},#{passWord},#{commonName},#{englishName},#{mobilePhone})
+    </insert>
+</mapper>

@@ -4,10 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <package name="cn.jpp.entity"/>
+        <package name="com.lucius.user.entity"/>
     </typeAliases>
     <mappers>
         <!--<mapper resource="cn/happy/entity/IUserInfoDAO.xml" /> -->
-        <package name="cn.jpp.dao"/>
+        <!--<mapper resource="com/lucius/user/mapper/userMapper.xml"/>-->
+        <package name="com.lucius.user.dao.IUserDao"/>
     </mappers>
 </configuration>
