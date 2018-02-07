@@ -7,8 +7,8 @@
         <package name="com.lucius.user.entity"/>
     </typeAliases>
     <mappers>
-        <!--<mapper resource="cn/happy/entity/IUserInfoDAO.xml" /> -->
-        <!--<mapper resource="com/lucius/user/mapper/userMapper.xml"/>-->
-        <package name="com.lucius.user.dao.IUserDao"/>
+       <!-- <mapper resource="cn/happy/entity/IUserInfoDAO.xml" />
+        <mapper resource="com/lucius/user/mapper/userMapper.xml"/>-->
+
     </mappers>
 </configuration>

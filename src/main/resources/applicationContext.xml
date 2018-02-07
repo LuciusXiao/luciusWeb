@@ -17,9 +17,9 @@
 
     <!-- 01.配置数据源 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="driverClassName" value="${jdbc.driverClass}"></property>
-        <property name="url" value="${jdbc.jdbcUrl}"></property>
-        <property name="username" value="${jdbc.user}"></property>
+        <property name="driverClassName" value="${jdbc.driver}"></property>
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="username" value="${jdbc.username}"></property>
         <property name="password" value="${jdbc.password}"></property>
 
         <!-- 配置初始化大小、最小、最大 -->
@@ -54,8 +54,14 @@
     <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
         <!-- 自动扫描mapping.xml文件 -->
-        <property name="mapperLocations" value="classpath:org/ssm/dufy/mapper/*.xml"></property>
+        <property name="mapperLocations">
+            <list>
+                <value>classpath:com/lucius/user/mapper/*.xml</value>
+            </list>
+        </property>
+        <!--<property name="mapperLocations" value="classpath:com/lucius/user/mapper/*.xml"></property>-->
     </bean>
 
     <!-- 02.配置SessionFactory -->
@@ -68,18 +74,18 @@
     <!-- 03.生成dao代理對象 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sessionFactory"></property>
-        <property name="basePackage" value="cn.jpp.dao"></property>
+        <property name="basePackage" value="com.lucius.user.dao"></property>
     </bean>
 
     <!--04.配置service-->
-    <bean id="userService" class="cn.jpp.service.UserInfoServiceImpl">
-        <property name="dao" ref="IUserInfoDAO"></property>
-    </bean>
+    <!--<bean id="userService" class="com.lucius.user.service.impl.UserServiceImpl">
+        <property name="userDao" ref="IUserDao"></property>
+    </bean>-->
 
     <!-- 05.配置action -->
-    <bean id="/userAction.do" class="cn.jpp.controller.UserInfoController">
-        <property name="service" ref="userService"></property>
-    </bean>
+    <!--<bean id="/userAction.do" class="com.lucius.user.web.UserController">
+        <property name="userService" ref="userService"></property>
+    </bean>-->
 
     <!-- 06.配置事务管理器 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

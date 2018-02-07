@@ -20,6 +20,7 @@
     <mybatis.version>3.2.1</mybatis.version>
     <!-- aspectJ版本号 -->
     <aspectJ.version>1.8.9</aspectJ.version>
+    <jettyVersion>9.3.0.M1</jettyVersion>
   </properties>
 
   <dependencies>
@@ -188,7 +189,19 @@
     </dependency>
 
   </dependencies>
+
   <build>
     <finalName>web</finalName>
+
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>${jettyVersion}</version>
+      </plugin>
+    </plugins>
   </build>
+
+
+
 </project>
